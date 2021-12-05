@@ -1,0 +1,65 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card mb-3">
+            <img src="<%= panasz.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= panasz.title%></h5>
+                <p class="card-text"><%= panasz.description%></p>
+            </div>
+
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted"><%= panasz.location%></li>
+                <li class="list-group-item">Submitted by <%= panasz.author.username%></li>
+                <li class="list-group-item"><%= panasz.price%> HUF értékben vásárolt</li>
+            </ul>
+            <%  if( currentUser && panasz.author.equals(currentUser._id)||currentUser && currentUser.isAdmin=== true)  {%>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/panaszok/<%=panasz._id%>/edit">Szerkesztés</a>
+                <form class="d-inline" action="/panaszok/<%=panasz._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Törlés</button>
+                </form>
+            </div>
+            <% } %>
+            <div class="card-footer text-muted">
+                2 napja
+            </div>
+        </div>
+
+    </div>
+    <div class="col-6">
+        <% if(currentUser){ %>
+        <h2>Szóljon hozzá</h2>
+        <form action="/panaszok/<%=panasz._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+                      <div class="mb-3">
+                          <label class="form-label" for="rating">Visszajelzés hasznossága</label>
+                          <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
+                      </div>
+            <div class="mb-3">
+                <label class="form-label" for="body">Hozzászólás</label>
+                <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+            <button class="btn btn-success">Küldés</button>
+        </form>
+        <% } %>
+        <% for(let review of panasz.reviews) { %>
+        <div class="card mb-3 ">
+            <div class="card-body">
+                <h5 class="card-title">Osztályozás: <%= review.rating %></h5>
+                <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6>
+                <p class="card-text">Review: <%= review.body %></p>
+                <%  if( currentUser && review.author.equals(currentUser._id)||currentUser && currentUser.isAdmin=== true)  {%>
+                <form action="/panaszok/<%=panasz._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-sm btn-danger">Törlés</button>
+                </form>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

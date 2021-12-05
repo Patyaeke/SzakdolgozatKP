@@ -1,0 +1,42 @@
+
+
+
+
+<% layout('layouts/boilerplate')%>
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card-shadow">
+
+
+
+        <form action="/login" method="POST" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Felhasználónév</label>
+                <input class="form-control" type="text" id="username" name="username" required>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="password">Jelszó</label>
+                <input class="form-control" type="password" id="password" name="password" required>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+            <button class="btn btn-success">Belépés</button>
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

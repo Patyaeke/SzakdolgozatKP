@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Új vásárlói visszajelzés</h1>
+    <div class="col-6 offset-3">
+        <form action="/panaszok" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="title">Cím</label>
+                <input class="form-control" type="text" id="title" name="panasz[title]" required>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Termék</label>
+                <input class="form-control" type="text" id="location" name="panasz[termek]" required>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image" name="panasz[image]" required>
+                <div class="valid-feedback">
+                  Helyes!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Mennyit költött?</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">HUF</span>
+                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        aria-describedby="price-label" name="panasz[price]" required>
+                </div>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Meghatározás:</label>
+                <textarea class="form-control" type="text" id="description" name="panasz[description]"
+                    required></textarea>
+                <div class="valid-feedback">
+                    Helyes!
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Visszajelzés küldése</button>
+            </div>
+        </form>
+        <a href="/panaszok">Összes visszajelzés</a>
+    </div>
+</div>

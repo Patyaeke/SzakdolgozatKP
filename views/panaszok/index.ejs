@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>Minden visszajelzés</h1>
+
+      <div>
+    <a href="/panaszok/new">Új visszajelzés</a>
+</div>
+
+
+<% for (let panasz of panaszok){%>
+<div class="card" mb-3>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" alt="" src="<%=panasz.image%>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= panasz.title %> </h5>
+                <p class="card-text"><%= panasz.description %></p>
+                <p class="card-text">
+                    <small class="text-muted"><%= panasz.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/panaszok/<%=panasz._id%>">Megtekintés <%=panasz.title%></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>

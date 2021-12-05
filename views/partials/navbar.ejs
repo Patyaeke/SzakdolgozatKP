@@ -1,0 +1,24 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Vásárlói portál</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Kezdőlap</a>
+                <a class="nav-link" href="/panaszok">Vásárlói visszajelzések</a>
+                <a class="nav-link" href="/panaszok/new">Új visszajelzés</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <% if(!currentUser) {%>
+                <a class="nav-link" href="/login">Belépés</a>
+                <a class="nav-link" href="/register">Regisztráció</a>
+                <% } else {%>
+                <a class="nav-link" href="/logout">Kijelentkezés</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

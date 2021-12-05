@@ -1,0 +1,44 @@
+body{
+  height: 100vh;
+  background-image:
+  url("https://unsplash.com/photos/7KLa-xLbSXA");
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.cover-container{
+  max-width: 60vw;
+}
+
+.nav-link{
+  padding:0.25;
+
+  font-weight:700;
+
+  color:white;
+
+    margin-left:1rem;
+
+
+}
+
+.nav-link:hover{
+
+  color: grey;
+
+
+}
+
+.nav-link.active{
+  color:white;
+}
+
+
+
+.btn-secondary, .btn-secondary:hover {
+
+  color:black;
+  text-shadow:none;
+}
